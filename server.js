@@ -7,14 +7,14 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 
-// TİKTOK YAYINCI KULLANICI ADI (BAŞINDA @ OLMADAN)
-const TIKTOK_USERNAME = "akanaz"; 
+// TİKTOK YAYINCI KULLANICI ADIN (GÜNCELLENDİ)
+const TIKTOK_USERNAME = "awasbey"; 
 
 const flags = [
     { name: "TÜRKİYE", code: "tr" }, { name: "ALMANYA", code: "de" }, { name: "FRANSA", code: "fr" },
     { name: "İTALYA", code: "it" }, { name: "İSPANYA", code: "es" }, { name: "İNGİLTERE", code: "gb" },
     { name: "JAPONYA", code: "jp" }, { name: "GÜNEY KORE", code: "kr" }, { name: "ÇİN", code: "cn" },
-    { name: "BREZİLYA", code: "br" }, { name: "ARJANTİN", code: "ar" }, { name: "MEXİKA", code: "mx" },
+    { name: "BREZİLYA", code: "br" }, { name: "ARJANTİN", code: "ar" }, { name: "MEKSİKA", code: "mx" },
     { name: "KANADA", code: "ca" }, { name: "AMERİKA", code: "us" }, { name: "RUSYA", code: "ru" },
     { name: "MISIR", code: "eg" }, { name: "HİNDİSTAN", code: "in" }, { name: "SİNGAPUR", code: "sg" }
 ];
@@ -97,11 +97,11 @@ io.on('connection', (socket) => {
     });
 });
 
-// TİKTOK LIVE CONNECTION
+// TİKTOK LIVE CONNECTION (@awasbey CANLI YAYIN DİNLENİYOR)
 let tiktokLiveConnection = new WebcastPushConnection(TIKTOK_USERNAME);
 
 tiktokLiveConnection.connect().then(state => {
-    console.log(`TikTok Bağlandı! Room ID: ${state.roomId}`);
+    console.log(`@awasbey TikTok Canlı Yayınına Bağlandı! Room ID: ${state.roomId}`);
 }).catch(err => {
     console.log('TikTok Bağlantı Hatası (Yayın Kapalı Olabilir):', err);
 });
@@ -123,6 +123,5 @@ tiktokLiveConnection.on('chat', data => {
 });
 
 server.listen(3000, () => {
-    console.log('Sunucu 3000 portunda çalışıyor!');
+    console.log('Bayrak Oyunu Sunucusu 3000 portunda @awasbey için aktif!');
 });
-          
