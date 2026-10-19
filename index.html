@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bayrağı Bil - TikTok Live</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+
+    <!-- ÜST HEADER / CANLI YAYIN BANNER -->
+    <div class="header">
+        <div class="game-badge">
+            <span class="tag">BAYRAK #<span id="flagIndex">1</span></span>
+            <span class="title">BAYRAĞI BİL</span>
+        </div>
+        <div class="timer-box" id="timer">15</div>
+    </div>
+
+    <!-- BAYRAK GÖRSEL ALANI -->
+    <div class="flag-card">
+        <img id="flagImg" src="https://flagcdn.com/w320/tr.png" alt="Bayrak">
+    </div>
+
+    <!-- İPUCU MASKESİ VEYA DOĞRU CEVAP METNİ -->
+    <div class="answer-box">
+        <div class="answer-mask" id="answerMask">? ? ? ? ? ?</div>
+        <div class="instruction" id="subInstruction">
+            <i class="fa-solid fa-comments" style="color:#00f2fe;"></i> ÜLKEYİ SOHBETE YAZ!
+        </div>
+    </div>
+
+    <!-- CANLI DOĞRU BİLENLER ŞERİDİ -->
+    <div class="winners-container">
+        <div class="winners-title" id="winnerHeader"><i class="fa-solid fa-trophy"></i> DOĞRU BİLENLER (0)</div>
+        <div class="winners-list" id="winnersList"></div>
+    </div>
+
+    <!-- PUAN TABLOLARI -->
+    <div class="boards-grid">
+        <div class="board-card">
+            <div class="board-title"><i class="fa-solid fa-bolt"></i> BU TUR</div>
+            <div id="roundBoard"></div>
+        </div>
+        <div class="board-card">
+            <div class="board-title"><i class="fa-solid fa-crown"></i> OTURUM</div>
+            <div id="sessionBoard"></div>
+        </div>
+    </div>
+
+    <div class="watermark">By: AwasBey</div>
+
+    <!-- YAYINCI KONTROL VE TEST PANENİ (YAYIN MODUNDA GİZLENİR) -->
+    <div class="controls-overlay" id="controlsOverlay">
+        <button class="btn btn-stream" onclick="toggleStreamMode()">
+            <i class="fa-solid fa-eye"></i> Yayın Modu (S)
+        </button>
+        <button class="btn" onclick="toggleSound()">
+            <i class="fa-solid fa-volume-high" id="soundIcon"></i> Ses Açık
+        </button>
+        <button class="btn btn-hint" onclick="useGiftHint(1)">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> İpucu Harf Aç (Gül)
+        </button>
+        <button class="btn btn-test" onclick="simulateRandomChat()">
+            <i class="fa-solid fa-robot"></i> Test Yorumu Yap
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
